@@ -1,7 +1,7 @@
 #include "ship_env.h"
 
-//std::string ship_lib_path = "/var/lib/ship/";
-std::string ship_lib_path = "/home/ship/";
+std::string ship_lib_path = "/var/lib/ship/";
+//std::string ship_lib_path = "/home/ship/";
 
 boost::property_tree::ptree pt;
 

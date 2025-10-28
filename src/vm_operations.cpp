@@ -637,7 +637,7 @@ std::string get_tested_vm_link(const std::string &vm_name) {
     } else if (vm_name == "ubuntu") {
         return "";
     } else if (vm_name == "arch") {
-        return "https://sourceforge.net/projects/arch-vm-base/files/v0.1.2/";
+        return "https://downloads.sourceforge.net/project/arch-vm-base/v0.1.2/archlinux.qcow2.000";
     } else if (vm_name == "gentoo") {
         return "";
     } else if (vm_name == "fedora") {
