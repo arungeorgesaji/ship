@@ -270,7 +270,7 @@ void add_user_to_group(const std::string& group) {
     if (!is_user_in_group(group)) {
         std::cout << "User is not in the " << group << " group." << std::endl;
         std::cout << "Adding user to the " << group << " group..." << std::endl;
-        std::string command = "sudo usermod -aG " + group + " $(whoami)";
+        std::string command = "usermod -aG " + group + " $(whoami)";
         system_exec(command);
     } 
 }

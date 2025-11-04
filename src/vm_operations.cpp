@@ -813,7 +813,7 @@ std::string get_disk_image_path() {
 }
 
 void convert_disk_image(const std::string &source_image, const std::string &dest_image, const std::string &options) {
-    std::string convert_cmd = "sudo qemu-img convert -f qcow2 -O qcow2 " + options + " '" + source_image + "' '" + dest_image + "'";
+    std::string convert_cmd = "qemu-img convert -f qcow2 -O qcow2 " + options + " '" + source_image + "' '" + dest_image + "'";
     system_exec(convert_cmd);
 }
 
