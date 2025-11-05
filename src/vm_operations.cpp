@@ -435,7 +435,7 @@ std::string generate_vm_xml() {
   <memory unit='MiB'>)" << ship_env.memory_limit << R"(</memory>
   <vcpu placement='static'>)" << ship_env.cpu_limit << R"(</vcpu>
   <os>
-    <type arch='x86_64' machine='pc-i440fx-2.9'>hvm</type>
+    <type arch='x86_64' machine='pc-i440fx-10.1'>hvm</type>
     <boot dev='hd'/>
     <boot dev='cdrom'/>
     <kernel commandline="quiet loglevel=0"/>
@@ -569,7 +569,11 @@ void start_vm_with_confirmation_prompt() {
 void download_iso() {
     std::cout << "Downloading iso to images" << std::endl;
        
-    std::string download_cmd = "aria2c --dir " + ship_lib_path + "images/iso-images " + ship_env.source;
+    std::string download_cmd = "aria2c --dir " + ship_lib_path + "images/iso-images "
+                           + ship_env.source
+                           + " --max-connection-per-server=16 --split=16 "
+                           + "--max-concurrent-downloads=4 --enable-http-pipelining=true "
+                           + "--max-overall-download-limit=0";
     system_exec(download_cmd);  
 }
 
